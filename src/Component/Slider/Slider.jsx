@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
-import barImg from "./../../assets/Bar.jpg"
-import sliderImg2 from "./../../assets/slider2.jpg"
-import sliderImg3 from "./../../assets/slider3.jpg"
+import barImg from "../../assets/Bar.jpg"
+import sliderImg2 from "../../assets/Slider2.jpg"
+import sliderImg3 from "../../assets/slider3.jpg"
 import { motion } from "motion/react"
 import { delay, easeIn } from "motion";
 
