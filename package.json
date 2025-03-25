@@ -17,17 +17,12 @@
     "@fullpage/react-fullpage": "^0.1.48",
     "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.2",
-    "fullpage.js": "^4.0.20",
     "generate-react-cli": "^8.4.9",
-    "lucide-react": "^0.479.0",
     "motion": "^12.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-id-swiper": "^4.0.0",
     "react-router-dom": "^7.3.0",
-    "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1",
-    "swiper": "^11.2.5"
+    "react-slick": "^0.30.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
