@@ -87,7 +87,7 @@ export default function SimpleSlider() {
       onMouseEnter={() => { setshow(true) }}
       onMouseLeave={() => { setshow(false) }}
     >
-      <Slider className="h-full"  {...settings}>
+      <Slider lazyLoad="ondemand" className="h-full"  {...settings}>
         <div >
           <div style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${barImg})`, backgroundSize: "cover", backgroundPosition: "center", height: "100vh" }} className="flex items-center justify-center">
             <motion.div initial={{ x: "-100vw" }} animate={{ x: "0" }} transition={transition} key={key}>

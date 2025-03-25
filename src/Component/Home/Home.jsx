@@ -20,7 +20,6 @@ function Home() {
   const [showVideo, setshowVideo] = useState(false)
   const [videoSrc, setVideoSrc] = useState("");
   useEffect(() => {
-    // تحميل الفيديو مسبقًا عند تحميل الصفحة
     const preloadSrc =
       "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FCrimsonCairo%2Fvideos%2F717165649355923%2F&show_text=false&width=401&t=0";
 
@@ -33,7 +32,7 @@ function Home() {
         <h2 className='text-red-500 font-bold text-3xl title-font'>Crimson restraunt</h2>
         <h1 className='uppercase text-5xl text-black pargraph-font font-extrabold tracking-[6px]'>Welcome</h1>
         <p className='text-gray-400 montserrat'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt dicta aliquam explicabo facilis eaque, vero culpa deserunt neque? Modi culpa provident saepe deserunt at mollitia perspiciatis harum odio, impedit minus.</p>
-        <a href="" className='text-gray-400 hover:text-red-500 transition-all montserrat'><span>OUR STORY</span><i className="fa-solid fa-arrow-right ms-4"></i></a>
+        <a href="" className='text-gray-400 hover:text-red-500 transition-colors montserrat'><span>OUR STORY</span><i className="fa-solid fa-arrow-right ms-4"></i></a>
       </div>
       <div className='w-[400px] h-[300px] rounded-2xl overflow-hidden'>
         <img src={Capresse} alt="" className='rounded-2xl w-full h-full object-cover img_scale_transtion' style={{ objectPosition: "0px -20px" }} />
@@ -60,7 +59,7 @@ function Home() {
             <img src={romanticImg} alt="" className="rounded-2xl w-full h-full  img_scale_transtion " style={{ objectPosition: "center" }} />
           </div>
           <div className='mt-5 gap-1.5 flex flex-col'>
-            <h2 className='pargraph-font-normal tracking-[4px] text-xl hover:text-red-500 transition-all'>ROMANTIC RESTAURANT</h2>
+            <h2 className='pargraph-font-normal tracking-[4px] text-xl hover:text-red-500 transition-colors'>ROMANTIC RESTAURANT</h2>
             <p className='monstramontserrat text-gray-400 text-lg'>Phasellus lorem enim, luctus ut velit eget, con-vallis egestas eros.</p>
             <a href="" className='text-gray-900 hover:text-red-500 transition-all montserrat uppercase text-sm mt-3 hover:translate-x-5'><span>learn more</span><i className="fa-solid fa-arrow-right ms-4"></i></a>
           </div>
@@ -70,7 +69,7 @@ function Home() {
             <img src={foodImg} alt="" className="rounded-2xl w-full h-full  img_scale_transtion " style={{ objectPosition: "center" }} />
           </div>
           <div className='mt-5 gap-1.5 flex flex-col'>
-            <h2 className='pargraph-font-normal tracking-[4px] text-xl hover:text-red-500 transition-all'>DELICIOUS FOOD</h2>
+            <h2 className='pargraph-font-normal tracking-[4px] text-xl hover:text-red-500 transition-colors'>DELICIOUS FOOD</h2>
             <p className='monstramontserrat text-gray-400 text-lg'>Aliquam eget aliquam magna, quis posuere risus ac justo ipsum nibh urna</p>
             <a href="" className='text-gray-900 hover:text-red-500 transition-all montserrat uppercase text-sm mt-3 hover:translate-x-5'><span>learn more</span><i className="fa-solid fa-arrow-right ms-4"></i></a>
           </div>
@@ -80,7 +79,7 @@ function Home() {
             <img src={wineImg} alt="" className="rounded-2xl w-full h-full  img_scale_transtion " style={{ objectPosition: "center" }} />
           </div>
           <div className='mt-5 gap-1.5 flex flex-col'>
-            <h2 className='pargraph-font-normal tracking-[4px] text-xl hover:text-red-500 transition-all'>RED WINES YOU LOVE</h2>
+            <h2 className='pargraph-font-normal tracking-[4px] text-xl hover:text-red-500 transition-colors'>RED WINES YOU LOVE</h2>
             <p className='monstramontserrat text-gray-400 text-lg'>Sed ornare ligula eget tortor tempor, quis porta tellus dictum.</p>
             <a href="" className='text-gray-900 hover:text-red-500 transition-all montserrat uppercase text-sm mt-3 hover:translate-x-5'><span>learn more</span><i className="fa-solid fa-arrow-right ms-4"></i></a>
           </div>
@@ -144,7 +143,7 @@ function Home() {
         <div className='text-center flex items-center justify-center flex-col'>
           <h2 className='text-3xl text-red-500 title-font'>Discover</h2>
           <h3 className='text-white text-5xl pargraph-font uppercase mt-5 tracking-[6px]'>OUR VIDEO</h3>
-          <div onClick={() => { setshowVideo(true) }} className='w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center mt-5 cursor-pointer hover:text-white hover:bg-red-500 transition-all'><i class="fa-solid fa-play"></i></div>
+          <div onClick={() => { setshowVideo(true) }} className='w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center mt-5 cursor-pointer hover:text-white hover:bg-red-500 transition-colors'><i class="fa-solid fa-play"></i></div>
           {/* <PopupVideo></PopupVideo> */}
           {showVideo && (
             <div

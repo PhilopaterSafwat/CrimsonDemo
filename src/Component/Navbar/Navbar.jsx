@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './Navbar.module.css'
 import logoImage from "./../../assets/images.jpeg"
 
 export default function Navbar() {
-    const [navbar, setnavbar] = useState(false)
+    const [navbar, setNavbar] = useState(false)
     const [burger, setburger] = useState(false)
-    const change = () => {
-        if (window.scrollY > 0) {
-            setnavbar(true)
-        } else if (window.scrollY <= 0 && burger === false) {
-            setnavbar(false)
-        }
-    }
-    window.addEventListener("scroll", change)
+    // useEffect(() => {
+    //     const change = () => {
+    //         if (window.scrollY > 0) {
+    //             setNavbar(true);
+    //         } else if (window.scrollY <= 0 && burger === false) {
+    //             setNavbar(false);
+    //         }
+    //         window.addEventListener("scroll", change)
+    //     }
+    // });
+
     return <>
         <nav className={`border-gray-200  fixed w-full z-40 ${navbar ? "navbar_active" : "navbar_background_color"}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 px-9 text-white ">
@@ -54,19 +57,19 @@ export default function Navbar() {
                 </div>
             </div>
             <div className={` navbar_active fixed w-screen h-screen top-0 left-0  ${burger ? "translate-x-0" : "translate-x-[100%]"}`}>
-                <i onClick={() => { setburger(!burger) }} className={`fa-solid fa-xmark absolute right-20 top-20 text-2xl cursor-pointer hover:text-red-500 transition-all `}></i>
+                <i onClick={() => { setburger(!burger) }} className={`fa-solid fa-xmark absolute right-20 top-20 text-2xl cursor-pointer hover:text-red-500 transition-colors `}></i>
                 <ul className={` flex flex-col font-medium uppercase justify-center items-center text-center h-full gap-3.5`}>
                     <li>
-                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-all" aria-current="page">Home</a>
+                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-colors" aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-all">Menu</a>
+                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-colors">Menu</a>
                     </li>
                     <li>
-                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-all">Reservation</a>
+                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-colors">Reservation</a>
                     </li>
                     <li>
-                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-all">Contact</a>
+                        <a href="#" className="block py-2 px-3 md:p-0  hover:text-red-500 transition-colors">Contact</a>
                     </li>
                 </ul>
             </div>
