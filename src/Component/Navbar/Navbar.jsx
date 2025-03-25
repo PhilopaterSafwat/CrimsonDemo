@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import style from './Navbar.module.css'
-import logoImage from "./../../assets/images.jpeg"
+import { useCallback } from 'react';
 
 export default function Navbar() {
-    const [navbar, setNavbar] = useState(false)
+    const [navbar, setnavbar] = useState(false)
     const [burger, setburger] = useState(false)
-    // useEffect(() => {
-    //     const change = () => {
-    //         if (window.scrollY > 0) {
-    //             setNavbar(true);
-    //         } else if (window.scrollY <= 0 && burger === false) {
-    //             setNavbar(false);
-    //         }
-    //         window.addEventListener("scroll", change)
-    //     }
-    // });
+    const toggleBurger = useCallback(() => {
+        setburger(prev => !prev);
+    }, []);
+    useEffect(() => {
+        const change = () => {
+            if (window.scrollY > 0) {
+                setnavbar(true);
+            } else if (window.scrollY <= 0 && burger === false) {
+                setnavbar(false);
+            }
+        };
+    
+        window.addEventListener("scroll", change);
+        
+        return () => {
+            window.removeEventListener("scroll", change);
+        };
+    }, [burger]);
 
     return <>
         <nav className={`border-gray-200  fixed w-full z-40 ${navbar ? "navbar_active" : "navbar_background_color"}`}>
@@ -48,7 +56,7 @@ export default function Navbar() {
                         <li><a href="https://www.instagram.com/crimsoncairo/?hl=en" target='_blank'><i className="fa-brands fa-instagram"></i></a></li>
                         <li><a href="https://www.facebook.com/CrimsonCairo/" target='_blank'><i className="fa-brands fa-facebook-f"></i></a></li>
                     </ul>
-                    <button onClick={() => { setburger(!burger) }} data-collapse-toggle="navbar-solid-bg" type="button" className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden ${!burger && "hidden"}`} aria-controls="navbar-solid-bg" aria-expanded="false">
+                    <button onClick={() => { toggleBurger() }} data-collapse-toggle="navbar-solid-bg" type="button" className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden ${!burger && "hidden"}`} aria-controls="navbar-solid-bg" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
@@ -74,6 +82,7 @@ export default function Navbar() {
                 </ul>
             </div>
         </nav>
+        
     </>
 }
 

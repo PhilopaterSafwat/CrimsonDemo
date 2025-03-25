@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import SimpleSlider from '../Slider/Slider.jsx';
 import Capresse from "./../../assets/Capresse.jpg"
-import sectionImg from "./../../assets/section.jpg"
+import sectionImg from "./../../assets/section.webp"
 import romanticImg from "./../../assets/romantic.jpg"
 import foodImg from "./../../assets/food.jpg"
 import wineImg from "./../../assets/wine.jpg"
@@ -22,7 +22,6 @@ function Home() {
   useEffect(() => {
     const preloadSrc =
       "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FCrimsonCairo%2Fvideos%2F717165649355923%2F&show_text=false&width=401&t=0";
-
     setVideoSrc(preloadSrc);
   }, []);
   return <>
@@ -41,8 +40,7 @@ function Home() {
     <section className='relative'>
       <div className='h-[392px] flex items-center justify-center' style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${sectionImg})`,
-        backgroundPosition: "top",
-        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
         backgroundSize: "cover"
       }}
       >
@@ -135,8 +133,8 @@ function Home() {
     <section className='relative mb-96'>
       <div className='h-[450px] flex items-center justify-center' style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${videoImg})`,
-        backgroundPosition: "top",
-        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        
         backgroundSize: "cover"
       }}
       >
@@ -144,7 +142,6 @@ function Home() {
           <h2 className='text-3xl text-red-500 title-font'>Discover</h2>
           <h3 className='text-white text-5xl pargraph-font uppercase mt-5 tracking-[6px]'>OUR VIDEO</h3>
           <div onClick={() => { setshowVideo(true) }} className='w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center mt-5 cursor-pointer hover:text-white hover:bg-red-500 transition-colors'><i class="fa-solid fa-play"></i></div>
-          {/* <PopupVideo></PopupVideo> */}
           {showVideo && (
             <div
               className="Video_model w-screen h-screen top-0 left-0 fixed z-50 flex items-center justify-center"
