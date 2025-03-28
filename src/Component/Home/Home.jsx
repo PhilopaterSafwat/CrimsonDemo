@@ -91,6 +91,10 @@ function Home() {
       color: "grey",
     }),
   }
+  const today = new Date();
+  const numberOfDaysToAdd = 1;
+  const date = today.setDate(today.getDate() + numberOfDaysToAdd);
+  const defaultValue = new Date(date).toISOString().split('T')[0]
   return <>
     <SimpleSlider />
     <section className='flex py-50 md:px-40 justify-center items-center gap-20 flex-wrap'>
@@ -248,7 +252,7 @@ function Home() {
           <div className='flex sm:flex-row flex-col w-full justify-center gap-y-5'>
             <div className='flex-col flex px-4 w-full md:w-1/2 md:max-w-[300px]'>
               <label htmlFor="date" className='mb-2 text-[#808080]'>Date</label>
-              <input type="date" id='date' className='w-full py-2 mb-5 rounded-lg px-5 border-[#808080] text-[#808080] focus:outline-0 border-1 hover:border-red-500' />
+              <input defaultValue={defaultValue} type="date" id='date' className='w-full py-2 mb-5 rounded-lg px-5 border-[#808080] text-[#808080] focus:outline-0 border-1 hover:border-red-500' />
               <label htmlFor="time" className='mb-2 text-[#808080]'>Time</label>
               <Select inputId="time" options={Timeoptions} styles={customStyle} defaultValue={Timeoptions[0]} className='mb-5 ' />
               <label htmlFor="people-select" className='mb-2 text-[#808080]'>People</label>
