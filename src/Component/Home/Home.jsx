@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Select from 'react-select'
+
 import Slider from 'react-slick';
 import SimpleSlider from '../Slider/Slider.jsx';
 import Capresse from "./../../assets/Capresse.jpg"
@@ -13,6 +15,8 @@ import DrinkImg from "./../../assets/Drink.jpg"
 import HappyhourImg from "./../../assets/Happyhour.jpg"
 import DesertImg from "./../../assets/Desert.jpg"
 import videoImg from "./../../assets/Video.jpg"
+import reservationImg from "./../../assets/reservation.jpg"
+
 
 
 
@@ -24,6 +28,69 @@ function Home() {
       "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FCrimsonCairo%2Fvideos%2F717165649355923%2F&show_text=false&width=401&t=0";
     setVideoSrc(preloadSrc);
   }, []);
+  const Timeoptions = [
+    { value: '1:00', label: '1:00' },
+    { value: '1:30', label: '1:30' },
+    { value: '2:00', label: '2:00' },
+    { value: '2:30', label: '2:30' },
+    { value: '3:00', label: '3:00' },
+    { value: '3:30', label: '3:30' },
+    { value: '4:00', label: '4:00' },
+    { value: '4:30', label: '4:30' },
+    { value: '5:00', label: '5:00' },
+    { value: '5:30', label: '5:30' },
+    { value: '6:00', label: '6:00' },
+    { value: '6:30', label: '6:30' },
+    { value: '7:00', label: '7:00' },
+    { value: '7:30', label: '7:30' },
+    { value: '8:00', label: '8:00' },
+    { value: '8:30', label: '8:30' },
+    { value: '9:00', label: '9:00' },
+    { value: '9:30', label: '9:30' },
+    { value: '10:00', label: '10:00' },
+  ]
+  const Peopleoptions = [
+    { value: '1', label: '1 Person' },
+    { value: '2', label: '2 People' },
+    { value: '3', label: '3 People' },
+    { value: '4', label: '4 People' },
+    { value: '5', label: '5 People' },
+    { value: '6', label: '6 People' },
+    { value: '7', label: '7 People' },
+    { value: '8', label: '8 People' },
+    { value: '9', label: '9 People' },
+    { value: '10', label: '10 People' },
+    { value: '11', label: '11 People' },
+    { value: '12', label: '12 People' },
+    { value: '13', label: '13 People' },
+    { value: '14', label: '14 People' },
+    { value: '15', label: '15 People' },
+    { value: '16', label: '16 People' },
+  ]
+  const customStyle = {
+    control: (provided, state) => ({
+      ...provided,
+      borderRadius: "8px",
+      borderColor: state.isFocused ? "#f11f29" : "grey",
+      outline: "none",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "#f11f29",
+      },
+      paddingTop: "2px",
+      paddingBottom: "2px",
+      color: "grey"
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#f11f29" : "",
+      color: state.isFocused ? "white" : "grey",
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "grey",
+    }),
+  }
   return <>
     <SimpleSlider />
     <section className='flex py-50 md:px-40 justify-center items-center gap-20 flex-wrap'>
@@ -130,11 +197,11 @@ function Home() {
         </div>
       </div>
     </section >
-    <section className='relative mb-96'>
+    <section className='relative py-20 mb-20'>
       <div className='h-[450px] flex items-center justify-center' style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${videoImg})`,
         backgroundPosition: "center",
-        
+
         backgroundSize: "cover"
       }}
       >
@@ -169,6 +236,38 @@ function Home() {
           )}
 
         </div>
+      </div>
+    </section>
+    <section className='flex lg:px-40 py-20 mb-96 items-center lg:items-start justify-center lg:flex-row flex-col gap-y-10 gap-x-10'>
+      <div className='w-full lg:w-1/2 flex flex-col items-center '>
+        <div className='text-center mb-10'>
+          <h2 className='title-font text-red-500 text-3xl'>Reservation</h2>
+          <h3 className='pargraph-font tracking-[6px] text-5xl'>BOOK TABLE</h3>
+        </div>
+        <form action="" className='w-full flex flex-col'>
+          <div className='flex sm:flex-row flex-col w-full justify-center gap-y-5'>
+            <div className='flex-col flex px-4 w-full md:w-1/2 md:max-w-[300px]'>
+              <label htmlFor="date" className='mb-2 text-[#808080]'>Date</label>
+              <input type="date" id='date' className='w-full py-2 mb-5 rounded-lg px-5 border-[#808080] text-[#808080] focus:outline-0 border-1 hover:border-red-500' />
+              <label htmlFor="time" className='mb-2 text-[#808080]'>Time</label>
+              <Select inputId="time" options={Timeoptions} styles={customStyle} defaultValue={Timeoptions[0]} className='mb-5 ' />
+              <label htmlFor="people-select" className='mb-2 text-[#808080]'>People</label>
+              <Select inputId="people-select" options={Peopleoptions} styles={customStyle} defaultValue={Peopleoptions[0]} />
+            </div>
+            <div className='flex-col flex px-4 w-full md:w-1/2 md:max-w-[300px]'>
+              <label htmlFor="name" className='mb-2 text-[#808080]'>Name</label>
+              <input placeholder='Name' type="text" id='name' className='py-2 mb-5 rounded-lg px-5 border-[#808080] text-[#808080] focus:outline-0 border-1 hover:border-red-500' />
+              <label htmlFor="phone" className='mb-2 text-[#808080]'>Phone</label>
+              <input placeholder='Phone' type="text" id='phone' className='py-2 mb-5 rounded-lg px-5 border-[#808080] text-[#808080] focus:outline-0 border-1 hover:border-red-500' />
+              <label htmlFor="email" className='mb-2 text-[#808080]'>Email</label>
+              <input placeholder='Email' type="email" id='email' className='py-2 mb-5 rounded-lg px-5 border-[#808080] text-[#808080] focus:outline-0 border-1 hover:border-red-500' />
+            </div>
+          </div>
+          <button className='uppercase mt-2 bg-black px-8 py-2 m-auto rounded-lg text-white cursor-pointer hover:bg-red-500 transition-colors' type='submit'>Book table</button>
+        </form>
+      </div>
+      <div className='w-[400px] h-[400px] rounded-2xl overflow-hidden'>
+        <img src={reservationImg} alt="" className='rounded-2xl w-full h-full object-cover img_scale_transtion' />
       </div>
     </section>
   </>

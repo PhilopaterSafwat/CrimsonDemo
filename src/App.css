@@ -36,6 +36,7 @@
 .custom-next {
   right: 10px;
   transition: all 0.5s ease;
+
 }
 
 .custom-arrow:hover {
@@ -95,7 +96,8 @@
 }
 
 .gallery-button:hover {
-  background-color: rgba(251, 44, 54, 0.8);
+  background-color: rgba(250, 43, 54, 0.8);
+
   color: white;
 }
 .gallery_image{
